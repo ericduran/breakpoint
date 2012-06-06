@@ -27,6 +27,13 @@ $breakpoint9: monochrome;
 // experimental support for device-pixel-ratio
 $breakpoint10: 1 1.5 device-pixel-ratio;
 
+// Set Up
+.example {
+  border: 1px solid grey;
+  padding: 1em;
+  width: 80%;
+  margin-bottom: 1em;
+}
 
 
 // Use it
@@ -39,6 +46,7 @@ $breakpoint10: 1 1.5 device-pixel-ratio;
   }
 }
 
+
 .foo {
   @include show-variable($breakpoint1);
   @include breakpoint($breakpoint1) {
@@ -46,86 +54,80 @@ $breakpoint10: 1 1.5 device-pixel-ratio;
   }
 }
 
-.bar {
-  @include show-variable($breakpoint2);
-  @include breakpoint($breakpoint2) {
-    background-color: crimson;
-  }
-}
+// .bar {
+//   @include show-variable($breakpoint2);
+//   @include breakpoint($breakpoint2) {
+//     background-color: crimson;
+//   }
+// }
 
-.baz {
-  @include show-variable($breakpoint3);
-  @include breakpoint($breakpoint3) {
-    background-color: crimson;
-  }
-}
+// .baz {
+//   @include show-variable($breakpoint3);
+//   @include breakpoint($breakpoint3) {
+//     background-color: crimson;
+//   }
+// }
 
-.omg {
-  @include show-variable($breakpoint4);
-  @include breakpoint($breakpoint4) {
-    background-color: crimson;
-  }
-}
+// .omg {
+//   @include show-variable($breakpoint4);
+//   @include breakpoint($breakpoint4) {
+//     background-color: crimson;
+//   }
+// }
 
-.wtf {
-  @include show-variable($breakpoint5);
-  @include breakpoint($breakpoint5) {
-    background-color: crimson;
-  }
-}
+// .wtf {
+//   @include show-variable($breakpoint5);
+//   @include breakpoint($breakpoint5) {
+//     background-color: crimson;
+//   }
+// }
 
-.bbq {
-  @include show-variable($breakpoint6);
-  @include breakpoint($breakpoint6) {
-    background-color: crimson;
-  }
-}
+// .bbq {
+//   @include show-variable($breakpoint6);
+//   @include breakpoint($breakpoint6) {
+//     background-color: crimson;
+//   }
+// }
 
-.zztop {
-  @include show-variable($breakpoint7);
-  @include breakpoint($breakpoint7) {
-    background-color: crimson;
-  }
-}
+// .zztop {
+//   @include show-variable($breakpoint7);
+//   @include breakpoint($breakpoint7) {
+//     background-color: crimson;
+//   }
+// }
 
-.elp {
-  @include show-variable($breakpoint1 print);
-  @include breakpoint($breakpoint1, print) {
-    background-color: crimson;
-  }
-}
+// .elp {
+//   @include show-variable($breakpoint1 print);
+//   @include breakpoint($breakpoint1, print) {
+//     background-color: crimson;
+//   }
+// }
 
-.csny {
-  @include show-variable($breakpoint8);
-  @include breakpoint($breakpoint8) {
-    background-color: crimson;
-  }
-}
+// .csny {
+//   @include show-variable($breakpoint8);
+//   @include breakpoint($breakpoint8) {
+//     background-color: crimson;
+//   }
+// }
 
-.rhcp {
-  @include show-variable("30em 40em");
-  @include breakpoint(30em 40em) {
-    background-color: crimson;
-  }
-}
+// .rhcp {
+//   @include show-variable("30em 40em");
+//   @include breakpoint(30em 40em) {
+//     background-color: crimson;
+//   }
+// }
 
-.tgif {
-  @include show-variable($breakpoint4);
-  @include breakpoint($breakpoint4) {
-    background-color: crimson;
-  }
-}
+// .tgif {
+//   @include show-variable($breakpoint4);
+//   @include breakpoint($breakpoint4) {
+//     background-color: crimson;
+//   }
+// }
 
-.snl {
-  @include show-variable($breakpoint10);
-  @include breakpoint($breakpoint10) {
-    background-color: crimson;
-  }
-}
+// .snl {
+//   @include show-variable($breakpoint10);
+//   @include breakpoint($breakpoint10) {
+//     background-color: crimson;
+//   }
+// }
 
-.example {
-  border: 1px solid grey;
-  padding: 1em;
-  width: 80%;
-  margin-bottom: 1em;
-}

@@ -37,17 +37,25 @@ $breakpoint-default-feature: min-width !default;
   $moz-query-string:      false !default;
   $ms-query-string:       false !default;
   $o-query-string:        false !default;
-//  @debug $breakpoint;
+  // @debug $breakpoint;
+
   // initialize string
-  $query-string: "#{$media} ";
+  // $query-string: "#{$media} ";
+
+  $query-string: "";
   @if type-of($breakpoint) == number {
     // assume max-width if only a number
-    $query-string: breakpoint-concatenate($query-string, $breakpoint);
+    @debug $breakpoint;
+    $query-string: "(min-width: 500px)";
+    // breakpoint-concatenate($breakpoint);
+    // @debug breakpoint-concatenate($breakpoint)
   }
+
   @if type-of($breakpoint) == string {
     // handle one-sided features (ie. monochrome)
     $query-string: breakpoint-concatenate($query-string, $breakpoint, false);
   }
+
   @else if type-of($breakpoint) == list {
     // set min/max if both values are numbers
     @if type-of(nth($breakpoint, 1)) == number and type-of(nth($breakpoint, 2)) == number {
@@ -118,9 +126,18 @@ $breakpoint-default-feature: min-width !default;
     }
   }
   // write out the media query
-  @media #{$query-string} {
-    @content;
+  // @debug $query-string;
+  $blort: "(min-width: 500px)";
+  $blort: "(min-width: 500px)";
+  @debug $blort;
+  @media #{$media} {
+    font-size: 1px;
+    @media #{$blort} {
+      font-size: 2px;
+      @content;
+    }
   }
+
   @if $webkit-query-string {
     @media #{$webkit-query-string} {
       @content;
@@ -144,13 +161,13 @@ $breakpoint-default-feature: min-width !default;
   // }
 }
 
-@function breakpoint-concatenate($query-string, $new-value, $feature: $breakpoint-default-feature) {
+@function breakpoint-concatenate($new-value, $feature: $breakpoint-default-feature) {
   $new-string: "";
   @if $feature != false {
-    $new-string: #{$query-string}unquote("and (#{$feature}:  #{$new-value}) ");
+    $new-string: unquote("(#{$feature}:  #{$new-value}) ");
   }
   @else {
-    $new-string: #{$query-string}unquote("and (#{$new-value}) ");
+    $new-string: unquote("(#{$new-value}) ");
   }
   @return $new-string;
 }
