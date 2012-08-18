@@ -207,19 +207,21 @@ $breakpoint-no-query-wrappers: false          !default;
   $max-value:     false !default;
   $length:        false !default;
   $query:         false !default;
-
+  
   $length: length($breakpoint);
   // Check to see if there is only one item.
   @if $length == 1 {
     $value: $breakpoint;
-    @if type-of($breakpoint) == 'number' {
+    
+    @if type-of($value) == 'number' {
       $feature: $breakpoint-default-feature;
+      
+      // If EM Breakpoints are active, do it!
+      @if $breakpoint-to-ems {
+        $value: breakpoint-to-base-em($value);
+      }
     }
 
-    // If EM Breakpoints are active, do it!
-    @if $breakpoint-to-ems and type-of($value) == 'number' {
-      $value: breakpoint-to-base-em($value);
-    }
     // Build the Query
     $query: breakpoint-generate($media-string, $feature, $value, $first);
     // Set Context
