@@ -9,7 +9,7 @@
   
   @if $font-size-type != 'list' {
     $base-font-size: base-conversion($breakpoint-base-font-size);
-    @return base-conversion($base-font-size) / 1em * base-conversion($input);
+    @return (base-conversion($base-font-size) / 1em) * base-conversion($input);
   }
   @else {
     @for $i from 1 to $font-size-length {
@@ -20,17 +20,19 @@
       // Next Media Query to test
       $bfs-test: nth(nth($breakpoint-base-font-size, $index), 2);
       // Conversion of Base Font Size to MQ
-      $bfsmq: base-conversion($bfs) / 1em * base-conversion($input);
+      $bfsmq: (base-conversion($bfs) / 1em) * base-conversion($input);
       // Conversion of Test Media Query
-      $bfsmq-test: base-conversion($bfs) / 1em * base-conversion($bfs-test);
-
+      $bfsmq-test: (base-conversion($bfs) / 1em) * base-conversion($bfs-test);
+      
+//      @debug '#{$bfsmq} - Base Font Size Media Query';
+//      @debug '#{$bfsmq-test} - Base Font Size Test';
       
       @if $bfsmq >= $bfsmq-test {
         @return $bfsmq;
       }
     }
     
-    @return base-conversion(nth(nth($breakpoint-base-font-size, 1), 1)) / 1em * base-conversion($input);
+    @return (base-conversion(nth(nth($breakpoint-base-font-size, 1), 1)) / 1em) * base-conversion($input);
   }
 }
 
