@@ -4,7 +4,7 @@
 
 $breakpoint-to-ems: true;
 
-$breakpoint-base-font-size: .75em, 1em 500px, 2em 900px;
+$breakpoint-base-font-size: .75em, 1em 20em, 2em 40em;
 
 //$breakpoint-force-media-all: true;
 
@@ -12,7 +12,7 @@ $breakpoint-base-font-size: .75em, 1em 500px, 2em 900px;
 
 // create $breakpoint variables like so
 // assume $breakpoint-default-feature if only a number
-$breakpoint1: 500px;
+$breakpoint1: 44em;
 $breakpoint2: 30em;
 
 // single value with feature
