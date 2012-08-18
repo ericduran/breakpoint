@@ -1,7 +1,7 @@
 .foo {
   background-color: gainsboro;
 }
-@media (min-width: 82em) {
+@media (min-width: 88em) {
   .foo {
     /* simple breakpoint */
     background-color: crimson;
