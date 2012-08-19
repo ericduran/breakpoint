@@ -8,7 +8,7 @@
   $base-font-size: false;
   
   @if $font-size-type != 'list' {
-    @return base-conversion($input) / (base-conversion($breakpoint-base-font-size) / 1em);
+    @return base-conversion($input) / base-conversion($breakpoint-base-font-size) * 1em;
   }
   @else {
     @for $i from 1 to $font-size-length {
@@ -21,9 +21,9 @@
       $bfs-test: nth(nth($breakpoint-base-font-size, $index), 2);
 
       // Conversion of Base Font Size to MQ
-      $bfsmq: base-conversion($input) / (base-conversion($bfs) / 1em);
+      $bfsmq: base-conversion($input) / base-conversion($bfs)  * 1em;
       // Conversion of Test Media Query
-      $bfsmq-test: base-conversion($bfs-test) / (base-conversion($bfs) / 1em);
+      $bfsmq-test: base-conversion($bfs-test) / base-conversion($bfs) * 1em;
       
 //      @debug '#{$bfsmq} - Base Font Size Media Query';
 //      @debug '#{$bfsmq-test} - Base Font Size Test';
@@ -33,7 +33,7 @@
       }
     }
     
-    @return base-conversion($input) / (nth($breakpoint-base-font-size, 1) / 1em);
+    @return base-conversion($input) / base-conversion(nth($breakpoint-base-font-size, 1)) * 1em;
   }
 }
 
