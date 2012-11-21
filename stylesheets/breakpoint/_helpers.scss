@@ -58,7 +58,7 @@
 // Returns whether the feature can have a string value
 //////////////////////////////
 @function breakpoint-string-value($feature) {
-  @if $feature == 'orientation' or $feature == 'scan' or $feature == 'color' {
+  @if $feature == 'orientation' or $feature == 'scan' or $feature == 'color' or $feature == 'media' or $feature == 'no query' {
     @return true;
   }
   @else {
