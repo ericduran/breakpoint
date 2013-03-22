@@ -13,7 +13,7 @@ module Sass::Script::Functions
     Sass::Script::Bool.new(result)
   end
   def featureExists(feature, list)
-    testList = Array.new
+    testList = Array.new df
     listLength = list.to_a.length - 1
 
     # Only check if length greater than zero
